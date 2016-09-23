@@ -9,7 +9,7 @@ def tsv_to_yml(src, dst)
 end
 
 def hashify(keys, values)
-  Hash[keys.zip(values)]
+  keys.zip(values).to_h
 end
 
 if ARGV.size == 2
