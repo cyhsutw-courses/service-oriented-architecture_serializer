@@ -3,8 +3,8 @@ require 'yaml'
 
 def tsv_to_yml(src, dst)
   data = CSV.read(src, col_sep: "\t")
-  column_names = data.shift
-  data = data.map { |values| hashify(column_names, values) }
+  keys = data.shift
+  data = data.map { |values| hashify(keys, values) }
   File.open(dst, 'w') { |file| file.write data.to_yaml }
 end
 
