@@ -14,8 +14,10 @@ def hashify(keys, values)
   keys.zip(values).to_h
 end
 
-if ARGV.size == 2
-  tsv_to_yml ARGV[0], ARGV[1]
-else
-  STDERR.puts 'usage: ruby tsv_to_yml.rb /path/to/tsv /path/to/yml'
+if __FILE__ == $PROGRAM_NAME
+  if ARGV.size == 2
+    tsv_to_yml(*ARGV)
+  else
+    STDERR.puts 'usage: ruby tsv_to_yml.rb /path/to/tsv /path/to/yml'
+  end
 end

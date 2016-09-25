@@ -27,8 +27,10 @@ def write_csv(to_file: nil, header_row: [], data_rows: [])
   end
 end
 
-if ARGV.size == 2
-  yml_to_tsv ARGV[0], ARGV[1]
-else
-  STDERR.puts 'usage: ruby yml_to_tsv.rb /path/to/yml /path/to/tsv'
+if __FILE__ == $PROGRAM_NAME
+  if ARGV.size == 2
+    yml_to_tsv(*ARGV)
+  else
+    STDERR.puts 'usage: ruby tsv_to_yml.rb /path/to/tsv /path/to/yml'
+  end
 end
